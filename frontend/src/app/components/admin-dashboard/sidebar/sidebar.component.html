@@ -1,0 +1,45 @@
+<div class="sidebar">
+    <div class="logo">
+      <img src="../assets/sm.png" alt="Admin Logo">
+    </div>
+    <div class="sidebar-links">
+      <a routerLink="/admin-dashboard" routerLinkActive="active" class="sidebar-link">
+        <fa-icon [icon]="faChartPie"></fa-icon>
+        <span>Dashboard</span>
+      </a>
+      <a routerLink="/admin-dashboard/products" routerLinkActive="active" class="sidebar-link">
+        <fa-icon [icon]="faBox"></fa-icon>
+        <span>Products</span>
+      </a>
+      <a routerLink="/admin-dashboard/order-details" class="sidebar-link" routerLinkActive="active">
+        <fa-icon [icon]="faClipboardList"></fa-icon>
+        <span>All Orders</span>
+      </a>
+      <a routerLink="/admin-dashboard/categories" routerLinkActive="active" class="sidebar-link">
+        <fa-icon [icon]="faTags"></fa-icon>
+        <span>Categories</span>
+      </a>
+      <a routerLink="/admin-dashboard/users" routerLinkActive="active" class="sidebar-link">
+        <fa-icon [icon]="faUsers"></fa-icon>
+        <span>Users</span>
+      </a>
+      <a routerLink="/admin-dashboard/profile-settings" routerLinkActive="active" class="sidebar-link">
+        <fa-icon [icon]="faUserCog"></fa-icon>
+        <span>Profile Settings</span>
+      </a>
+      <a routerLink="/admin-dashboard/reviews" routerLinkActive="active" class="sidebar-link">
+        <fa-icon [icon]="faStar"></fa-icon>
+        <span>Reviews</span>
+      </a>
+      <div class="sidebar-bottom">
+        <a routerLink="/admin-dashboard/help" routerLinkActive="active" class="sidebar-link">
+          <fa-icon [icon]="faQuestionCircle"></fa-icon>
+          <span>Help</span>
+        </a>
+        <a routerLink="/login" class="sidebar-link">
+          <fa-icon [icon]="faSignOutAlt"></fa-icon>
+          <span>Logout</span>
+      </a>
+    </div>
+    </div>
+  </div>  

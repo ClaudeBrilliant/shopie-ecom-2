@@ -1,0 +1,30 @@
+<div class="users-container" *ngIf="users.length > 0; else emptyUsers">
+    <table class="users-table">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.role }}</td>
+          <td>
+            <fa-icon [icon]="faTrash" class="delete-icon" (click)="confirmDeleteUser(user.id)"></fa-icon>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="total-users">Total Users: {{ users.length }}</p>
+  </div>
+  <ng-template #emptyUsers>
+    <p>No users found</p>
+  </ng-template>
+  <app-notification *ngIf="notificationMessage" [message]="notificationMessage" [type]="notificationType" (close)="closeNotification()"></app-notification>
+  <app-confirm-alert *ngIf="showConfirmDelete" [message]="confirmMessage" (confirm)="deleteUser()" (cancel)="cancelDelete()"></app-confirm-alert>  

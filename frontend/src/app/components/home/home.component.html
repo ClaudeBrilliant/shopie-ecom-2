@@ -1,0 +1,61 @@
+<!-- <app-navbar></app-navbar>
+<div *ngIf="isLoading" class="loading-spinner">Loading...</div>
+
+<div class="main-content">
+    <div class="sidebar">
+        <div class="sidebar-search-container">
+            <input type="text" [(ngModel)]="sidebarSearchTerm" placeholder="Search Categories">
+            <fa-icon class="sidebar-search-icon" [icon]="faSearch" (click)="handleSidebarSearch()"></fa-icon>
+        </div>
+        <div class="category-bar">
+            <button class="category-item" (click)="filterByCategory(1)">
+                <fa-icon [icon]="faCamera"></fa-icon>
+                <span>Camera</span>
+            </button>
+            <button class="category-item" (click)="filterByCategory(2)">
+                <fa-icon [icon]="faMobileAlt"></fa-icon>
+                <span>Phones</span>
+            </button>
+            <button class="category-item" (click)="filterByCategory(3)">
+                <fa-icon [icon]="faWatch"></fa-icon>
+                <span>Smart Watches</span>
+            </button>
+            <button class="category-item" (click)="filterByCategory(4)">
+                <fa-icon [icon]="faLaptop"></fa-icon>
+                <span>Laptops</span>
+            </button>
+            <button class="category-item" (click)="filterByCategory(5)">
+                <fa-icon [icon]="faGamepad"></fa-icon>
+                <span>Gaming</span>
+            </button>
+            <button class="category-item" (click)="filterByCategory(6)">
+                <fa-icon [icon]="faHeadphonesAlt"></fa-icon>
+                <span>Headphones</span>
+            </button>
+            <button class="category-item" (click)="filterByCategory(7)">
+                <fa-icon [icon]="faTv"></fa-icon>
+                <span>Screens</span>
+            </button>
+        </div>
+        <div class="free-delivery">
+            <img src="../assets/free-delivery.png" alt="Free Delivery">
+        </div>
+    </div>
+    <div class="products">
+        <div *ngFor="let product of paginatedProducts" class="product-item">
+          <img [src]="product.image" alt="{{ product.name }}">
+          <h3>{{ product.name }}</h3>
+          <p>{{ product.description }}</p>
+          <p class="price">Ksh: {{ product.price }}</p>
+          <div class="stock-container">
+            <span class="stock-item">+{{ product.stockQuantity }} More</span>
+          </div>
+          <div class="actions">
+            <button class="view-button" (click)="viewProduct(product)">View</button>
+            <fa-icon [icon]="faShoppingBag" class="action-icon" (click)="addToCart(product.id)" routerLink="/login"></fa-icon>
+          </div>
+        </div>
+      </div>
+    <mat-paginator [length]="filteredProducts.length" [pageSize]="pageSize" [pageSizeOptions]="[12, 24, 36]" (page)="onPageChange($event)" hidePageSize="true">
+    </mat-paginator>
+</div> -->

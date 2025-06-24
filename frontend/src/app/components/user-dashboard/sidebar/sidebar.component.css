@@ -1,0 +1,85 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 200px;
+  background-color: #dbdbdb;
+  padding: 20px;
+  margin-top: 5px; /* Adjust as needed for spacing */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow */
+  border-radius: 8px; /* Optional: add rounded corners */
+  height: 100vh;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 10px; /* Reduce margin-bottom to decrease distance */
+}
+
+.logo img {
+  width: 50px; /* Adjust as necessary */
+  height: auto;
+}
+
+.sidebar-links {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px; /* Adjust gap as needed for uniform spacing */
+  margin-top: 20px;
+}
+
+.bottom-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Adjust gap as needed for uniform spacing */
+  margin-top: auto; /* Push these links to the bottom */
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.sidebar-link fa-icon {
+  margin-right: 30px; /* Ensure consistent spacing between icon and text */
+  width: 20px; /* Set fixed width for icons */
+  height: 20px; /* Set fixed height for icons */
+}
+
+.sidebar-link:hover {
+  background-color: #e2e6ea;
+  border-radius: 5px;
+}
+
+.active-link {
+  background-color: #e2e6ea;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.cart-count {
+  background: #E83544;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 8px;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.sidebar-bottom{
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  margin-top: 20rem;
+}
+
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}

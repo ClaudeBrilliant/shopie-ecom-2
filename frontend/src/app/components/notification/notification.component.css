@@ -1,0 +1,51 @@
+.notification {
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%);
+  z-index: 1000;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  opacity: 0;
+}
+
+.notification.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.notification.success {
+  background-color: #119e5a;
+  color: #d4edda;
+  border: 1px solid #0f3d30;
+}
+
+.notification.error {
+  background-color: #721c24;
+  color: #f8d7da;
+  border: 1px solid #4a1215;
+}
+
+.notification .message {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.notification .close-icon {
+  font-size: 20px;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  
+}

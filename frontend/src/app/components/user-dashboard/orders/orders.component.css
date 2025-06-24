@@ -1,0 +1,111 @@
+.orders-table {
+  width: 95%; /* Adjusted width to leave margins */
+  margin: 20px auto; /* Centered the table and added vertical margin */
+  border-collapse: collapse;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.orders-table th, .orders-table td {
+  padding: 15px;
+  border: 1px solid #ddd;
+}
+
+.orders-table th {
+  background-color: #333; /* Header row background color */
+  color: #fff; /* Header text color */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.orders-table td {
+  text-align: center;
+  background-color: #f9f9f9; /* Light grey for table body */
+}
+
+.orders-table tr:nth-child(even) td {
+  background-color: #f2f2f2; /* Alternate row color */
+}
+
+.orders-table tr:hover td {
+  background-color: #f1f1f1; /* Row hover color */
+}
+
+.orders-table button {
+  background: #E83544;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.orders-table button:hover {
+  background: #a6002b;
+  transform: scale(1.05);
+}
+
+.orders-table button:active {
+  transform: scale(1);
+}
+
+.orders-table p {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Status Column Styling */
+.status {
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.status-button.pending {
+  background-color: #ffeb3b;
+  color: #000;
+}
+
+.status.completed {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.status.cancelled {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.status-button.completed {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.status-button.cancelled {
+  background-color: #f44336;
+  color: #fff;
+}
+
+
+@media screen and (max-width: 768px) {
+  .orders-table {
+    width: 70%; 
+    margin: 5px auto; 
+    font-size: 11px; 
+  }
+
+  .orders-table th, .orders-table td {
+    padding: 2px; 
+  }
+
+  .orders-table button {
+    padding: 5px 9px; 
+  }
+  
+  .orders-table p {
+    font-size: 11px; 
+  }
+}

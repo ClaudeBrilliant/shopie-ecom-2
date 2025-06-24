@@ -1,0 +1,32 @@
+<div *ngIf="orders.length > 0; else emptyOrders">
+    <table class="orders-table">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Date</th>
+          <!-- <th>User Name</th> -->
+          <!-- <th>Email</th> -->
+          <th>Total Items</th>
+          <th>Total Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ order.createdAt | date }}</td>
+          <!-- <td>{{ order.userName }}</td> -->
+          <!-- <td>{{ order.email }}</td> -->
+          <td>{{ getTotalItems(order.items) }}</td>
+          <td>Ksh: {{ order.total }}</td>
+          <td>
+            <fa-icon [icon]="faCheck" class="confirm-icon" (click)="confirmOrder(order.id)"></fa-icon>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <app-notification *ngIf="notificationMessage" [message]="notificationMessage" [type]="notificationType" (close)="closeNotification()"></app-notification>
+  </div>
+  <ng-template #emptyOrders>
+    <p>No orders found</p>
+  </ng-template>  

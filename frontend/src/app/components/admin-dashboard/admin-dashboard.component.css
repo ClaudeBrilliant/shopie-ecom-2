@@ -1,0 +1,8 @@
+.admin-dashboard-container {
+    display: flex;
+  }
+  
+  .admin-dashboard-content {
+    flex-grow: 1;
+    padding: 20px;
+  }  

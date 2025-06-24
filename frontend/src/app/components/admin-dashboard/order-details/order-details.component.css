@@ -1,0 +1,38 @@
+.orders-table {
+  width: 80%;
+  max-width: 1200px;
+  border-collapse: collapse;
+  margin: 20px auto; /* Center the table */
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.orders-table th, .orders-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.orders-table th {
+  background-color: #E83544;
+  color: #fff;
+}
+
+.orders-table td {
+  text-align: center;
+}
+
+.confirm-icon {
+  color: #E83544;
+  cursor: pointer;
+}
+
+.total-orders {
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 16px;
+  color: #333;
+}

@@ -1,0 +1,34 @@
+<div class="profile-settings-container">
+    <div class="form-section">
+      <h3>Profile</h3>
+      <div class="profile-form">
+        <div class="profile-image">
+          <img src="../assets/profile.svg" alt="Profile Image">
+        </div>
+        <form [formGroup]="profileForm" (ngSubmit)="onUpdateProfile()">
+          <label for="email">Email</label>
+          <input type="email" id="email" formControlName="email" required>
+          <label for="name">Name</label>
+          <input type="text" id="name" formControlName="name" required>
+          <button type="submit">Update Profile</button>
+        </form>
+      </div>
+    </div>
+  
+    <div class="form-section">
+      <h3>Change Password</h3>
+      <form [formGroup]="passwordForm" (ngSubmit)="onUpdatePassword()">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" required>
+        <label for="currentPassword">Current Password</label>
+        <input type="password" id="currentPassword" formControlName="currentPassword" required>
+        <label for="newPassword">New Password</label>
+        <input type="password" id="newPassword" formControlName="newPassword" required minlength="8">
+        <button type="submit">Update Password</button>
+      </form>
+    </div>
+  
+    <div *ngIf="notificationMessage" class="notification-container">
+      <app-notification [message]="notificationMessage" [type]="notificationType" (close)="closeNotification()"></app-notification>
+    </div>
+  </div>  

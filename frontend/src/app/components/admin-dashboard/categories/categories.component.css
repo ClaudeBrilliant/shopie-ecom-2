@@ -1,0 +1,113 @@
+.category-container {
+    padding: 20px;
+  }
+  
+  .add-category-button {
+    display: flex;
+    align-items: center;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-bottom: 20px;
+  }
+  
+  .add-category-button:hover {
+    background-color: #218838;
+  }
+  
+  .add-icon {
+    margin-right: 8px;
+  }
+  
+  .category-form {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; 
+    width: 30%;
+  }
+  
+  .category-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  .category-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .category-form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .category-form button:hover {
+    background-color: #333;
+  }
+  
+  .cancel-button {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  .cancel-button:hover {
+    background-color: #c82333;
+  }
+  
+  .categories-table {
+    width: 60%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin: 0 auto;
+  }
+  
+  .categories-table th, .categories-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+  }
+  
+  .categories-table th {
+    background-color: #E83544;
+    color: #fff;
+  }
+  
+  .categories-table td {
+    text-align: center;
+  }
+  
+  .edit-icon, .delete-icon {
+    cursor: pointer;
+    margin: 0 5px;
+  }
+  
+  .edit-icon {
+    color: #4CAF50;
+  }
+  
+  .delete-icon {
+    color: #E83544;
+  }  

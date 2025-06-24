@@ -1,0 +1,62 @@
+<!-- <div *ngIf="orders.length > 0; else emptyOrders">
+  <table class="orders-table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Total</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td>{{ order.createdAt | date }}</td>
+        <td>Ksh: {{ order.total }}</td>
+        <td>
+          <button *ngIf="order.status === 'Pending'" class="status-button pending">Pending</button>
+          <button *ngIf="order.status === 'Completed'" class="status-button completed">Completed</button>
+          <button *ngIf="order.status === 'Cancelled'" class="status-button cancelled">Cancelled</button>
+        </td>
+        <td>
+          <button (click)="cancelOrder(order.id)">Cancel</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #emptyOrders>
+  <p>No orders found</p>
+</ng-template>
+<app-notification *ngIf="notificationMessage" [message]="notificationMessage" [type]="notificationType" (close)="closeNotification()"></app-notification> -->
+
+<div *ngIf="orders.length > 0; else emptyOrders">
+  <table class="orders-table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Total</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td>{{ order.createdAt | date }}</td>
+        <td>Ksh: {{ order.total }}</td>
+        <td>
+          <button *ngIf="order.status === 'Pending'" class="status-button pending">Pending</button>
+          <button *ngIf="order.status === 'Completed'" class="status-button completed">Completed</button>
+          <button *ngIf="order.status === 'Cancelled'" class="status-button cancelled">Cancelled</button>
+        </td>
+        <td>
+          <button (click)="confirmCancelOrder(order.id)">Cancel</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #emptyOrders>
+  <p>No orders found</p>
+</ng-template>
+<app-notification *ngIf="notificationMessage" [message]="notificationMessage" [type]="notificationType" (close)="closeNotification()"></app-notification>
+<app-confirmation-dialog *ngIf="orderToCancel !== null" (confirm)="onConfirm()" (cancel)="onCancel()"></app-confirmation-dialog>

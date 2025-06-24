@@ -1,0 +1,50 @@
+<nav class="navbar">
+  <!-- <div class="navbar-brand">Shoppie Mall</div> -->
+  <div class="navbar-brand">
+    <a routerLink="/">
+      <img src="../assets/sm.png" alt="Shoppie Mall Logo">
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <button class="navbar-item" routerLink="/">
+      <fa-icon [icon]="['fas', 'home']" class="fa-home"></fa-icon>
+    </button>
+    <button class="navbar-item" routerLink="/about">
+      About Us
+    </button>
+    <button class="navbar-item" routerLink="/contact">
+      Contact
+    </button>
+    <button class="navbar-item" routerLink="/brand">
+      Brand
+    </button>
+    <button class="navbar-item" routerLink="/blog">
+      Blog
+    </button>
+  </div>
+  <div class="navbar-right">
+    <div class="search-container">
+      <input type="text" [(ngModel)]="searchTerm" placeholder="Search Shoppie">
+      <fa-icon class="search-icon" [icon]="['fas', 'search']" (click)="handleSearch()"></fa-icon>
+    </div>
+    <!-- <fa-icon [icon]="['fas', 'heart']"></fa-icon> -->
+    <!-- <fa-icon [icon]="['fas', 'shopping-cart']" class="fa-shopping-cart"></fa-icon>
+    <fa-icon [icon]="faUser" class="fa-user"></fa-icon> -->
+    <a href="/login" class="icon-button">
+      <fa-icon [icon]="['fas', 'shopping-cart']" class="fa-shopping-cart"></fa-icon>
+    </a>
+    <a class="icon-button">
+      <fa-icon [icon]="faUser" class="fa-user"></fa-icon>
+      <div class="profile-card">
+        <a href="/login" class="profile-link">
+          <fa-icon [icon]="faUserCircle" class="fa-user"></fa-icon>
+          login
+        </a>
+        <a routerLink="/register" class="profile-link">
+          <fa-icon [icon]="faUserPlus" class="fa-user"></fa-icon>
+          Register
+        </a>
+      </div>
+    </a>
+  </div>
+</nav>

@@ -1,0 +1,37 @@
+<div class="sidebar">
+  <div class="logo">
+    <img src="../assets/sm.png" alt="Shoppie Logo">
+  </div>
+  <div class="sidebar-links">
+    <a routerLink="/user-dashboard/buy-now" class="sidebar-link">
+      <fa-icon [icon]="faShoppingBag"></fa-icon>
+      <span>Buy Now</span>
+    </a>
+    <a routerLink="/user-dashboard/orders" routerLinkActive="active-link" class="sidebar-link">
+      <fa-icon [icon]="faClipboardList"></fa-icon>
+      <span>Orders</span>
+    </a>
+    <a routerLink="/user-dashboard/cart" class="sidebar-link">
+      <fa-icon [icon]="faShoppingCart"></fa-icon>
+      <span>Cart</span> <span class="cart-count">{{ cartItemCount }}</span>
+    </a>
+    <a routerLink="/user-dashboard/profile" routerLinkActive="active-link" class="sidebar-link">
+      <fa-icon [icon]="faUser"></fa-icon>
+      <span>Profile</span>
+    </a>
+    <a routerLink="/user-dashboard/reviewed-products" routerLinkActive="active-link" class="sidebar-link">
+      <fa-icon [icon]="faStar"></fa-icon>
+      <span>Reviewed</span>
+    </a>
+    <span class="sidebar-bottom">
+    <a routerLink="" routerLinkActive="active-link" class="sidebar-link">
+      <fa-icon [icon]="faQuestionCircle"></fa-icon>
+      <span>Help</span>
+    </a>
+    <a routerLink="/login" routerLinkActive="active-link" class="sidebar-link">
+      <fa-icon [icon]="faSignOutAlt"></fa-icon>
+      <span>Logout</span>
+    </a>
+    </span>
+  </div>
+</div>

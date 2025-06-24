@@ -1,0 +1,101 @@
+<app-navbar></app-navbar>
+<div class="main">
+  <div class="container">
+    <!-- Move this section to the top -->
+    <div *ngIf="notificationMessage">
+      <app-notification
+        [message]="notificationMessage"
+        [type]="notificationType"
+        (close)="closeNotification()"
+      ></app-notification>
+    </div>
+    <div class="account">
+      <img
+        src="../assets/sm.png"
+        alt="Logo"
+        style="width: 50px; height: 50px; margin-right: 5px"
+      />
+      <p>Already have an account?</p>
+      <p routerLink="/login" class="anchor">SignIn</p>
+    </div>
+
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        required
+        [(ngModel)]="user.name"
+        placeholder="Enter your name"
+      />
+      <label for="email">Email</label>
+      <input
+        type="email"
+        #email="ngModel"
+        required
+        email
+        [(ngModel)]="user.email"
+        name="email"
+        placeholder="example@yop.com"
+      />
+
+      <div
+        *ngIf="email.invalid && (email.dirty || email.touched)"
+        style="font-size: 12px; color: red; margin-bottom: 6px"
+      >
+        <div *ngIf="email.hasError('required')">Email is required</div>
+        <div *ngIf="email.hasError('email')">Email is Invalid</div>
+      </div>
+
+      <label for="phone">Phone Number</label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        required
+        [(ngModel)]="user.phone"
+        #phone="ngModel"
+        placeholder="+254 700 000 000"
+      />
+
+      <div
+        *ngIf="phone.invalid && (phone.dirty || phone.touched)"
+        style="font-size: 12px; color: red; margin-bottom: 6px"
+      >
+        <div *ngIf="phone.hasError('required')">Phone number is required</div>
+        <div *ngIf="phone.hasError('pattern')">
+          Please enter a valid phone number
+        </div>
+      </div>
+
+      <label for="password">Password</label>
+      <input
+        type="password"
+        minlength="8"
+        #password="ngModel"
+        required
+        [(ngModel)]="user.password"
+        name="password"
+      />
+      <div
+        *ngIf="password.invalid && (password.touched || password.dirty)"
+        style="font-size: 12px; color: red; margin-bottom: 6px"
+      >
+        <div *ngIf="password.hasError('minlength')">
+          Password must have 8 characters
+        </div>
+      </div>
+      <button type="submit">Register</button>
+      <!-- <div *ngIf="notificationMessage">
+        <app-notification [message]="notificationMessage" [type]="notificationType" (close)="closeNotification()"></app-notification>
+      </div> -->
+      <div class="form-footer">
+        <a routerLink="/" class="home-link">
+          <fa-icon [icon]="faArrowCircleLeft" class="back-icon"></fa-icon>
+          Home
+        </a>
+      </div>
+    </form>
+  </div>
+</div>

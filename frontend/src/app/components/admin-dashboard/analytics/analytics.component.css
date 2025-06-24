@@ -1,0 +1,67 @@
+.analytics-dashboard {
+    padding: 20px;
+  }
+  
+  .cards {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 10px;
+  }
+  
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+  }
+  
+  .card-content {
+    text-align: left;
+  }
+  
+  .card h3 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .card p {
+    margin: 5px 0 0;
+    font-size: 16px;
+    color: #888;
+  }
+  
+  .card-icon {
+    font-size: 40px;
+    color: #E83544;
+  }
+  
+  .charts-card {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .charts {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    gap: 20px;
+  }
+  
+  .chart {
+    flex: 1;
+  }
+  
+  ngx-charts-bar-vertical {
+    font-size: 14px;
+  }
+  
+  ngx-charts-pie-chart {
+    font-size: 14px;
+  }  

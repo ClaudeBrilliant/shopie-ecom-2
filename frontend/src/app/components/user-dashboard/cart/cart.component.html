@@ -1,0 +1,33 @@
+<div class="cart-container">
+  <div *ngIf="cartItems.length > 0; else emptyCart">
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Image</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartItems">
+          <td>{{ item.product.name }}</td>
+          <td><img [src]="item.product.image" alt="{{ item.product.name }}" class="product-image"></td>
+          <td>Ksh: {{ item.product.price }}</td>
+          <td class="actions">
+            <fa-icon [icon]="faTrash" (click)="removeFromCart(item.productId)"></fa-icon>
+            <span (click)="removeFromCart(item.productId)"> Remove</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="checkout-section">
+      <p class="total-price">Total Price: Ksh {{ totalPrice }}</p>
+      <button (click)="placeOrder()" class="place-order-button">Place Order</button>
+    </div>
+  </div>
+  <ng-template #emptyCart>
+    <p>Your Cart is empty</p>
+  </ng-template>
+</div>
+<app-notification *ngIf="notificationMessage" [message]="notificationMessage" [type]="notificationType" (close)="closeNotification()"></app-notification>

@@ -1,0 +1,53 @@
+<!-- <div class="buy-now-container">
+  <div class="categories-row">
+    <div *ngFor="let category of categories" class="category-item" (click)="filterProducts(category.id)">
+      <fa-icon [icon]="category.icon" class="category-icon"></fa-icon>
+      <span>{{ category.name }}</span>
+    </div>
+  </div>
+  <div class="products">
+    <div *ngFor="let product of filteredProducts" class="product-item">
+      <img [src]="product.image" alt="{{ product.name }}">
+      <div class="product-content">
+        <h3>{{ product.name }}</h3>
+        <p class="price">Ksh. {{ product.price }}</p>
+        <div class="stock-container">
+          <span class="stock-item">+{{ product.stockQuantity }} More</span>
+          <div class="ratings">
+          </div>
+        </div>
+      </div>
+      <div class="actions">
+        <button [routerLink]="['/user-dashboard/product', product.id]" class="view-button">View</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="buy-now-container">
+  <div class="categories-row">
+    <div *ngFor="let category of categories" class="category-item" (click)="filterProducts(category.id)">
+      <fa-icon [icon]="category.icon" class="category-icon"></fa-icon>
+      <span>{{ category.name }}</span>
+    </div>
+  </div>
+  <div class="products">
+    <div *ngFor="let product of paginatedProducts" class="product-item">
+      <img [src]="product.image" alt="{{ product.name }}">
+      <div class="product-content">
+        <h3>{{ product.name }}</h3>
+        <p class="price">Ksh. {{ product.price }}</p>
+        <div class="stock-container">
+          <span class="stock-item">+{{ product.stockQuantity }} More</span>
+          <div class="ratings">
+          </div>
+        </div>
+      </div>
+      <div class="actions">
+        <button [routerLink]="['/user-dashboard/product', product.id]" class="view-button">View</button>
+      </div>
+    </div>
+  </div>
+  <mat-paginator [length]="totalProducts" [pageSize]="itemsPerPage" (page)="onPageChange($event)"
+                [pageSizeOptions]="[6, 12, 18]"></mat-paginator>
+</div>

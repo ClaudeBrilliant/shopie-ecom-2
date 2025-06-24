@@ -1,0 +1,192 @@
+### Base URL and Token
+@baseUrl = http://localhost:3000
+@token = YOUR_JWT_TOKEN_HERE
+@productId = YOUR_PRODUCT_ID_HERE
+@orderId = YOUR_ORDER_ID_HERE
+@userId =  "cmc94w78x0006efucimbxzqvp"
+### Create User
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "email": "claudewandera7@gmail.com",
+  "password": "Ghost@2030",
+  "name": "Clyde",
+  "role": "ADMIN",
+  "phone" : "+1234567890"
+}
+
+### 🔐 Login user
+POST {{{{baseUrl}}}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "claudewandera087@gmail.com",
+  "password": "Ghost@2030"
+}
+### Get All Users
+GET {{baseUrl}}/users?page=1&limit=10
+Authorization: Bearer {{token}}
+
+### Get User By ID
+GET {{baseUrl}}/users/USER_ID_HERE
+Authorization: Bearer {{token}}
+
+### Get User By Email
+GET {{baseUrl}}/users/email/jane@example.com
+Authorization: Bearer {{token}}
+
+### Change Password
+PUT {{baseUrl}}/users/password/change/USER_ID_HERE
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "currentPassword": "JanePass123!",
+  "newPassword": "JanePass456!"
+}
+
+### 🔁 Refresh token
+POST {{{{baseUrl}}}}/users/refresh
+Authorization: Bearer {{token}}
+
+{}
+
+### 🚪 Logout user
+POST {{{{baseUrl}}}}/users/logout
+Authorization: Bearer {{token}}
+
+{}
+
+### Reset Password
+POST {{baseUrl}}/users/password/reset
+Content-Type: application/json
+
+{
+  "email": "jane@example.com",
+  "newPassword": "JanePass456!"
+}
+
+### Deactivate User
+PATCH {{baseUrl}}/users/deactivate/USER_ID_HERE
+Authorization: Bearer {{token}}
+
+### Delete User
+DELETE {{baseUrl}}/users/USER_ID_HERE
+Authorization: Bearer {{token}}
+
+### Update Profile Image
+PATCH {{baseUrl}}/users/profile-image/cmc4q6hr80001efw48ezgdarv
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "profileImageId": "cloudinary_img_id",
+  "profileImageUrl": "https://res.cloudinary.com/home/clyde/Downloads/depe.png"
+}
+
+### Create Product
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "name": "Rolexwatch",
+  "shortDescription": "Gold watch",
+  "description": "This is a test watch",
+  "price": 99.99,
+  "image": "https://www.pinterest.com/pin/67554063157078898/",
+  "stockQuantity": 20
+}
+
+### Get All Products
+GET http://localhost:3000/products
+
+### Get Product by ID
+GET http://localhost:3000/products/{{productId}}
+
+### Update Product
+PATCH http://localhost:3000/products/{{productId}}
+Content-Type: application/json
+
+{
+  "name": "Updated Product",
+  "price": 120.00,
+  "description": "Updated description"
+}
+
+### Delete Product
+DELETE http://localhost:3000/products/{{productId}}
+
+### 🔐 Set Auth Token (Paste your JWT here)
+@token = your_jwt_token_here
+
+### 🛒 Create Order (Admin only)
+POST http://localhost:3000/orders
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "items": [
+    {
+      "productId": "product-id-1",
+      "quantity": 2
+    },
+    {
+      "productId": "product-id-2",
+      "quantity": 1
+    }
+  ],
+  "shippingAddress": "123 Main Street",
+  "notes": "Please deliver between 10am-2pm"
+}
+
+### 👤 Get My Orders
+GET http://localhost:3000/orders/me
+Authorization: Bearer {{token}}
+
+### 📦 Get All Orders (Admin or authorized roles)
+GET http://localhost:3000/orders
+Authorization: Bearer {{token}}
+
+### 📄 Get Order by ID
+GET http://localhost:3000/orders/{{orderId}}
+Authorization: Bearer {{token}}
+
+
+### 🛒 Add item to cart
+POST http://localhost:3000/cart/add
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "productId": "product-id-123",
+  "quantity": 2
+}
+
+### 🧺 Get my cart
+GET http://localhost:3000/cart
+Authorization: Bearer {{token}}
+
+### ✏️ Update cart item quantity
+PATCH http://localhost:3000/cart/update
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "productId": "product-id-123",
+  "quantity": 5
+}
+
+### ❌ Remove item from cart
+DELETE http://localhost:3000/cart/remove
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "productId": "product-id-123"
+}
+
+### 🧹 Clear cart
+DELETE http://localhost:3000/cart/clear
+Authorization: Bearer {{token}}

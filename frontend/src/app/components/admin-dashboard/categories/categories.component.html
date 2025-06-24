@@ -1,0 +1,39 @@
+<div class="category-container">
+    <button class="add-category-button" (click)="onAddCategory()">
+      <fa-icon [icon]="faPlus" class="add-icon"></fa-icon> Add Category
+    </button>
+  
+    <table *ngIf="categories.length > 0" class="categories-table">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of categories; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ category.name }}</td>
+          <td>
+            <fa-icon [icon]="faEdit" class="edit-icon" (click)="onEditCategory(category)"></fa-icon>
+            <fa-icon [icon]="faTrash" class="delete-icon" (click)="onDeleteCategory(category.id)"></fa-icon>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div *ngIf="showForm" class="category-form">
+      <form [formGroup]="categoryForm" (ngSubmit)="onSaveCategory()">
+        <label for="name">Category Name</label>
+        <input type="text" id="name" formControlName="name">
+        <div class="form-actions">
+          <button type="submit">{{ editMode ? 'Update' : 'Add' }} Category</button>
+          <button type="button" class="cancel-button" (click)="onCancel()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  
+    <app-notification *ngIf="notificationMessage" [message]="notificationMessage" [type]="notificationType" (close)="closeNotification()"></app-notification>
+    <app-confirm-alert *ngIf="showConfirmDelete" [message]="confirmMessage" (confirm)="confirmDeleteCategory()" (cancel)="cancelDelete()"></app-confirm-alert>
+  </div>  

@@ -1,0 +1,38 @@
+<!-- <app-navbar></app-navbar>
+<div *ngIf="product" class="product-detail-card">
+  <img [src]="product.image" alt="{{ product.name }}" class="product-image">
+  <div class="product-info">
+    <h2>{{ product.name }}</h2>
+    <p>{{ product.description }}</p>
+    <p class="price">Ksh: {{ product.price }}</p>
+    <div class="stock-container">
+      <span class="stock-item">+{{ product.stockQuantity }} More</span>
+    </div>
+    <button (click)="addToCart(product.id)">
+      <fa-icon [icon]="faShoppingBag"></fa-icon> Add to Cart
+    </button>
+    <a routerLink="/" class="home-link">
+      <fa-icon [icon]="faArrowCircleLeft" class="back-icon"></fa-icon> Home
+    </a>
+  </div>
+</div> -->
+
+
+<!-- <app-navbar></app-navbar> -->
+<div *ngIf="product">
+  <div class="product-detail">
+    <img [src]="product.image" alt="{{ product.name }}">
+    <h2>{{ product.name }}</h2>
+    <p>{{ product.description }}</p>
+    <p class="price">Ksh: {{ product.price }}</p>
+    <div class="stock-container">
+      <span class="stock-item">+{{ product.stockQuantity }} More</span>
+    </div>
+    <button (click)="addToCart(product.id)">
+      <fa-icon [icon]="faShoppingBag"></fa-icon> Add to Cart
+    </button>
+  </div>
+</div>
+<div *ngIf="!product">
+  <p>Product not found.</p>
+</div>

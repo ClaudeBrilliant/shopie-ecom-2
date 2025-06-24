@@ -1,0 +1,62 @@
+<div class="analytics-dashboard">
+    <div class="cards">
+      <div class="card">
+        <div class="card-content">
+          <h3>{{ userCount }}</h3>
+          <p>Users</p>
+        </div>
+        <fa-icon [icon]="faUsers" class="card-icon"></fa-icon>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h3>{{ productCount }}</h3>
+          <p>Products in Stock</p>
+        </div>
+        <fa-icon [icon]="faBoxOpen" class="card-icon"></fa-icon>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h3>{{ orderCount }}</h3>
+          <p>Orders</p>
+        </div>
+        <fa-icon [icon]="faShoppingCart" class="card-icon"></fa-icon>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h3>{{ categoryCount }}</h3>
+          <p>Categories</p>
+        </div>
+        <fa-icon [icon]="faTags" class="card-icon"></fa-icon>
+      </div>
+    </div>
+    <div class="charts-card">
+      <div class="charts">
+        <div class="chart">
+          <ngx-charts-pie-chart
+            [view]="[500, 400]"
+            [scheme]="colorScheme"
+            [results]="pieChartData"
+            [gradient]="true"
+            [legend]="true"
+            [doughnut]="false"
+            [arcWidth]="0.25">
+          </ngx-charts-pie-chart>
+        </div>
+        <div class="chart">
+          <ngx-charts-bar-vertical
+            [view]="[700, 400]"
+            [scheme]="colorScheme"
+            [results]="barChartData"
+            [gradient]="true"
+            [xAxis]="true"
+            [yAxis]="true"
+            [legend]="true"
+            [showXAxisLabel]="true"
+            [showYAxisLabel]="true"
+            [xAxisLabel]="'Days'"
+            [yAxisLabel]="'Revenue'">
+          </ngx-charts-bar-vertical>
+        </div>
+      </div>
+    </div>
+  </div>  

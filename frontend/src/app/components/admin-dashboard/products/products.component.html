@@ -1,0 +1,122 @@
+<div class="product-component">
+    <div class="product-actions">
+      <button (click)="onAddProduct()"><fa-icon [icon]="faPlus"></fa-icon> Add Product</button>
+      <div class="search-container">
+        <input type="text" [(ngModel)]="searchTerm" (input)="onSearch()" placeholder="Search products..." class="search-input">
+      </div>
+      <select [(ngModel)]="selectedCategoryId" (change)="onFilterByCategory()" class="category-dropdown">
+        <option value="">All Categories</option>
+        <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+      </select>
+    </div>
+  
+    <div *ngIf="paginatedProducts.length > 0; else emptyProducts">
+      <table class="products-table">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of paginatedProducts; let i = index">
+            <td>{{ i + 1 + currentPage * itemsPerPage }}</td>
+            <td><img [src]="product.image" alt="{{ product.name }}" class="product-image"></td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td>Ksh: {{ product.price }}</td>
+            <td>{{ product.stockQuantity }}</td>
+            <td>
+              <fa-icon [icon]="faEdit" class="edit-icon" (click)="onEditProduct(product)"></fa-icon>
+              <fa-icon [icon]="faTrash" class="delete-icon" (click)="onDeleteProduct(product.id)"></fa-icon>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <app-notification *ngIf="notificationMessage" [message]="notificationMessage" [type]="notificationType" (close)="closeNotification()"></app-notification>
+      <app-confirm-alert *ngIf="showConfirmDelete" [message]="confirmMessage" (confirm)="confirmDeleteProduct()" (cancel)="cancelDelete()"></app-confirm-alert>
+      <mat-paginator [length]="totalItems" [pageSize]="itemsPerPage" (page)="onPageChange($event)" [pageSizeOptions]="[4, 8, 24]"></mat-paginator>
+    </div>
+    <ng-template #emptyProducts>
+      <div class="empty-products-container">
+        <p class="no-products-message">No products found</p>
+      </div>
+    </ng-template>
+  <div class="form">
+    <div class="product-form-container" [ngClass]="{'show': showForm}">
+      <form [formGroup]="productForm" (ngSubmit)="onSaveProduct()" class="product-form">
+        <fa-icon [icon]="faTimes" class="close-icon" (click)="onCancel()"></fa-icon>
+        <h2 style="font-size:19px;color:rgb(54, 53, 53);">{{ editMode ? 'Edit Product' : 'Add Product' }}</h2>
+        <label for="name">Name</label>
+        <input id="name" formControlName="name" type="text">
+        <div *ngIf="productForm.get('name')?.errors?.['required'] && (productForm.get('name')?.touched || productForm.get('name')?.dirty)" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+          name is required
+        </div>
+        <div *ngIf="productForm.get('name')?.errors?.['minlength'] && (productForm.get('name')?.touched || productForm.get('name')?.dirty)" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+          Product name is too short
+        </div>
+  
+        <label for="description">Description</label>
+        <textarea id="description" formControlName="description"></textarea>
+        <div *ngIf="productForm.get('description')?.errors?.['required'] && (productForm.get('description')?.touched || productForm.get('description')?.dirty)" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+          description is required
+        </div>
+        <div *ngIf="productForm.get('description')?.errors?.['minlength'] && (productForm.get('description')?.touched || productForm.get('description')?.dirty)" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+          Product description is too short
+        </div>
+
+  
+        <label for="price">Price</label>
+        <input id="price" formControlName="price" type="number">
+        <div *ngIf="productForm.get('price')?.errors?.['required'] && (productForm.get('price')?.touched || productForm.get('price')?.dirty)" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+          price is required
+        </div>
+        <div *ngIf="productForm.get('price')?.errors?.['minlength'] && (productForm.get('price')?.touched || productForm.get('price')?.dirty)" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+          Product price is invalid
+        </div>
+
+  
+        <label for="stockQuantity">Stock Quantity</label>
+        <input id="stockQuantity" formControlName="stockQuantity" type="number">
+        <div *ngIf="productForm.get('stockQuantity')?.errors?.['required'] && (productForm.get('stockQuantity')?.touched || productForm.get('stockQuantity')?.dirty)" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+          stockQuantity is required
+        </div>
+        <div *ngIf="productForm.get('stockQuantity')?.errors?.['minlength'] && (productForm.get('stockQuantity')?.touched || productForm.get('stockQuantity')?.dirty)" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+          Product stockQuantity is invalid
+        </div>
+
+  
+        <label for="categoryId">Category</label>
+        <select id="categoryId" formControlName="categoryId">
+          <option *ngFor="let category of categories" [value]="category.id | number">{{ category.name }}</option>
+        </select>
+        <div *ngIf="productForm.get('categoryId')?.errors?.['required'] && (productForm.get('categoryId')?.touched || productForm.get('categoryId')?.dirty)" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+          Product category is required
+        </div>
+        <div *ngIf="productForm.get('categoryId')?.errors?.['minlength'] && (productForm.get('categoryId')?.touched || productForm.get('categoryId')?.dirty)" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+          Product category must be included
+        </div>
+  
+        <label for="image">Image</label>
+        <input id="image" type="file" (change)="onFileChange($event)">
+        <span *ngIf="isLoading">Uploading...</span>
+        <div *ngIf="productForm.get('image')?.errors?.['required'] && (productForm.get('image')?.touched || productForm.get('image')?.dirty)" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+          Product image should be uploaded
+        </div>
+        <div *ngIf="productForm.get('image')?.errors?.['minlength'] && (productForm.get('image')?.touched || productForm.get('image')?.dirty)" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+          Product image must be included
+        </div>
+  
+        <div class="form-actions">
+          <button type="submit">{{ editMode ? 'Update Product' : 'Create Product' }}</button>
+          <button type="button" class="cancel-button" (click)="onCancel()">Cancel</button>
+        </div>
+      </form>
+    </div>
+    </div>
+  </div>  

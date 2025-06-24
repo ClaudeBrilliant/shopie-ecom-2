@@ -1,0 +1,55 @@
+.sidebar {
+    width: 200px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    margin-top: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    height: 90vh;
+  }
+  
+  .logo {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .logo img {
+    width: 50px;
+    height: auto;
+  }
+  
+  .sidebar-links {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .sidebar-link fa-icon {
+    margin-right: 10px;
+  }
+  
+  .sidebar-link:hover,
+  .sidebar-link.active {
+    background-color: #e2e6ea;
+    border-radius: 5px;
+  }
+
+  .sidebar-bottom {
+    margin-top: 10rem;
+  }
+
+
+  @media screen and (max-width: 768px) {
+     .sidebar{
+      display: none;
+     }
+  }

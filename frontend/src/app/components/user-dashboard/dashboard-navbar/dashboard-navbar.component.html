@@ -1,0 +1,49 @@
+<!-- <nav class="navbar">
+  <div class="navbar-center">
+    <div class="search-container">
+      <input type="text" [(ngModel)]="searchTerm" placeholder="Search" class="search-input" (focus)="onFocus()" (blur)="onBlur()">
+      <fa-icon [icon]="faSearch" class="search-icon"></fa-icon>
+    </div>
+  </div>
+  <div class="navbar-right">
+    <fa-icon [icon]="faShoppingCart" class="icon cart-icon"></fa-icon>
+    <span class="cart-count">{{ cartItemCount }}</span>
+    <img src="../assets/profile.svg" alt="Profile" class="profile-image">
+  </div>
+</nav> -->
+
+<!-- <nav class="navbar">
+  <div class="navbar-center">
+    <div class="search-container">
+      <input type="text" [(ngModel)]="searchTerm" placeholder="Search" class="search-input" (focus)="onFocus()" (blur)="onBlur()">
+      <fa-icon [icon]="faSearch" class="search-icon"></fa-icon>
+    </div>
+  </div>
+  <div class="navbar-right">
+    <fa-icon [icon]="faShoppingCart" class="icon cart-icon"></fa-icon>
+    <span class="cart-count">{{ cartItemCount }}</span>
+    <div class="profile-container">
+      <img src="../assets/profile.svg" alt="Profile" class="profile-image">
+      <span class="user-name">{{ userName }}</span>
+    </div>
+  </div>
+</nav> -->
+
+
+<!-- dashboard-navbar.component.html -->
+<nav class="navbar">
+  <div class="navbar-center">
+    <div class="search-container">
+      <input type="text" [(ngModel)]="searchTerm" placeholder="Search" class="search-input" (focus)="onFocus()" (blur)="onBlur()" (input)="handleSearch()">
+      <fa-icon [icon]="faSearch" class="search-icon"></fa-icon>
+    </div>
+  </div>
+  <div class="navbar-right">
+    <fa-icon [icon]="faShoppingCart" class="icon cart-icon"></fa-icon>
+    <span class="cart-count">{{ cartItemCount }}</span>
+    <div class="profile-container">
+      <img src="../assets/profile.svg" alt="Profile" class="profile-image">
+      <span class="user-name">{{ userName }}</span>
+    </div>
+  </div>
+</nav>

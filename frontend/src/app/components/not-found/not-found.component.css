@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .not-found-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    text-align: center;
+  }
+  
+  .not-found-content {
+    max-width: 800px;
+    padding: 40px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  .not-found-icon {
+    width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .not-found-content h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .not-found-content p {
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  .keep-shopping-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #E83544;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .keep-shopping-button:hover {
+    background-color: #a6002b;
+  }  

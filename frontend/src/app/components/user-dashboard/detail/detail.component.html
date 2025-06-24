@@ -1,0 +1,42 @@
+<div *ngIf="product" class="detail-container">
+  <div class="product-image">
+    <img [src]="product.image" alt="{{ product.name }}">
+  </div>
+  <div class="product-info">
+    <h1>{{ product.name }}</h1>
+    <div class="rating">
+      
+    </div>
+    <p class="price">KSh {{ product.price }}</p>
+    <div class="delivery-info">
+      <span></span>
+      <p class="discount">-{{ product.description }}</p>
+    </div>
+    <div class="quantity">
+      <span>Quantity:</span>
+      <input type="number" [(ngModel)]="quantity" min="1" [max]="product.stockQuantity">
+    </div>
+    <div class="actions">
+      <button class="add-to-cart-button" (click)="addToCart(product.id)">
+        <fa-icon [icon]="faShoppingBag"></fa-icon> Add to Cart
+      </button>
+      <button class="buy-now-button" (click)="buyNow(product.id)">
+        Buy Now
+      </button>
+    </div>
+    <div class="payment-methods">
+      <img src="../assets/lipapay.png" alt="LipaPay">
+      <img src="../assets/mpesa.png" alt="MPESA">
+      <img src="../assets/ipay.png" alt="iPay">
+      <img src="../assets/airtel.png" alt="Airtel">
+    </div>
+    <!-- <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div> -->
+  </div>
+</div>
+
+<div *ngIf="successMessage" class="notification-container">
+  <app-notification [message]="successMessage" type="success" (close)="closeNotification()"></app-notification>
+</div>
+<div *ngIf="errorMessage" class="notification-container">
+  <app-notification [message]="errorMessage" type="error" (close)="closeNotification()"></app-notification>
+</div>

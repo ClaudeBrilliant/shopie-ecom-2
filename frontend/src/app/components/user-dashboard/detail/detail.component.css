@@ -1,0 +1,147 @@
+.detail-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  margin: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  flex: 1 1 300px; /* Ensure the image takes a reasonable amount of space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-right: 20px; /* Add space between image and details */
+}
+
+.product-image img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.product-info {
+  flex: 2 1 500px; /* Ensure the product info takes a reasonable amount of space */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-info h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.stars {
+  font-size: 20px;
+  color: gold;
+  margin-right: 10px;
+}
+
+.reviews {
+  font-size: 14px;
+  color: #555;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: bold;
+  color: #d32f2f;
+  margin-bottom: 5px;
+}
+
+.delivery-info {
+  margin-bottom: 20px;
+}
+
+.discount {
+  font-size: 16px;
+  color: #4caf50;
+  margin-bottom: 20px;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.quantity span {
+  margin-right: 10px;
+}
+
+.quantity input {
+  width: 60px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.add-to-cart-button,
+.buy-now-button {
+  background-color: #ff9800;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+}
+
+.add-to-cart-button:hover,
+.buy-now-button:hover {
+  background-color: #e68900;
+}
+
+.add-to-cart-button fa-icon,
+.buy-now-button fa-icon {
+  margin-right: 8px;
+}
+
+.payment-methods img {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.error-message {
+  margin-top: 10px;
+  color: #d32f2f;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .detail-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-image {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .product-info {
+    align-items: center;
+    text-align: center;
+  }
+}
